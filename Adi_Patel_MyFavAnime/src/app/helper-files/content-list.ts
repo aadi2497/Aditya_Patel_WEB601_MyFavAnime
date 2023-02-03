@@ -26,7 +26,7 @@ export class ContentList {
           }
 
         let myanime = `<p>Title: ${this._items[index].title}</p>
-        <p>Description: ${this._items[index].description}</p><p>Creator: ${this._items[index].creator}</p>`;
+        <p>Description: ${this._items[index].description}</p><p>Creator: ${this._items[index].creator}</p><hr>`;
         if (this._items[index].imgURL) {
             myanime += `<img src='${this._items[index].imgURL}' alt='${this._items[index].type}'>`;
           }
