@@ -25,7 +25,7 @@ export class ContentList {
             return '<p>Error: index out of range</p>';
           }
 
-        let myanime = `<p>Title: ${this._items[index].title}</p></br>
+        let myanime = `<p>Title: ${this._items[index].title}</p>
         <p>Description: ${this._items[index].description}</p><p>Creator: ${this._items[index].creator}</p>`;
         if (this._items[index].imgURL) {
             myanime += `<img src='${this._items[index].imgURL}' alt='${this._items[index].type}'>`;
