@@ -1,12 +1,15 @@
 {
   "name": "adi-patel-my-fav-anime",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "generateComponent": "ng generate component",
+    "generatedirective": "ng generate directive",
+    "generatepipe": "ng generate pipe"
   },
   "private": true,
   "dependencies": {
