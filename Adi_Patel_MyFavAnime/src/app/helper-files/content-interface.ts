@@ -1,3 +1,5 @@
+import { Optional } from "@angular/core";
+
 export interface Content {
     id: number;
     title: string;
@@ -6,5 +8,4 @@ export interface Content {
     imgURL?: string;
     type?: string;
     tags?: string [];
-   
 }

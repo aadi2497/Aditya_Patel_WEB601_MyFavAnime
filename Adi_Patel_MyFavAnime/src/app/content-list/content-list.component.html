@@ -1,1 +1,5 @@
 <p>content-list works!</p>
+
+<div>
+    <app-content-card *ngFor="let content of contents; index as i; first as idFirst; odd as odd; even as even;" [content]="myanime" class="chess-player-{{i}}" [class.is-odd]="odd" [class.is-even]="even"></app-content-card>
+</div>
