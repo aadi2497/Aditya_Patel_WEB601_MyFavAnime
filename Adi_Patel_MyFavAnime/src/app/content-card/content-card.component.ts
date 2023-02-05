@@ -8,7 +8,7 @@ import { Content } from '../helper-files/content-interface';
 })
 export class ContentCardComponent implements OnInit {
  
-  @Input() contentItem?: Content;
+  @Input() content?: Content;
   private _item: Content[];
   constructor() {
     this._item=[];
@@ -19,10 +19,10 @@ export class ContentCardComponent implements OnInit {
   }
 
   pritnItem() {
-    console.log(this.contentItem?.id);
-    console.log(this.contentItem?.title);
-    console.log(this.contentItem?.description);
-    console.log(this.contentItem?.creator);
+    console.log(this.content?.id);
+    console.log(this.content?.title);
+    console.log(this.content?.description);
+    console.log(this.content?.creator);
   }
 
 
