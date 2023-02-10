@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Optional } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
+import { TmplAstBoundText } from '@angular/compiler';
+import { FliterPipe } from '../fliter.pipe';
 
 @Component({
   selector: 'app-content-list',
@@ -10,7 +12,7 @@ import { Content } from '../helper-files/content-interface';
 export class ContentListComponent implements OnInit {
   
   content: Content[];
-  
+  public inputvalue?: Optional;
   constructor() {
   this.content = [{
     id:0,
@@ -74,7 +76,36 @@ export class ContentListComponent implements OnInit {
     tags: ['Action', 'Adventure', 'Comedy', 'Drama', 'Fantasy', 'Shounen']
   }
 ]
+this.inputvalue ="";
 }
     ngOnInit(): void {
+  }
+  clickEvent(inputvalue: any): any {
+  
+    // let i = 0;
+    //  return  console.log(inputvalue); 
+    for(let i = 0;  i < this.content.length; i++) {
+     console.log(this.content[i].type);
+
+      // console.log(author.author)
+      // console.log(inputvalue);
+      if(this.content[i].type == inputvalue){
+     let abj =  <HTMLInputElement>document.getElementById('aut');
+       //return 'we found the item with other';
+       abj.innerHTML = 'we found the item with other';
+      }
+      //   else{
+      //  let abj =  <HTMLInputElement>document.getElementById('aut');
+
+      //        abj.innerHTML = 'we can not find the other';
+      //   }
+    
+
+    }
+    let abj =  <HTMLInputElement>document.getElementById('aut');
+    if(!abj.innerHTML){
+             abj.innerHTML = 'we can not find the other';
+
+    }
   }
 }
