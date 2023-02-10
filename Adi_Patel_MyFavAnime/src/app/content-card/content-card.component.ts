@@ -25,6 +25,13 @@ export class ContentCardComponent implements OnInit {
     console.log(this.content?.creator);
   }
 
+  PhotoView(id: number, title: string) {
+    console.log(`Content id: ${id}, title: ${title}`);
+  }
+
+  PhotoView2() {
+    console.log(`Content ID: ${this.content?.id} Title: ${this.content?.title}`);
+  }
 
   ngOnInit(): void {
   }
