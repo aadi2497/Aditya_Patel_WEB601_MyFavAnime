@@ -2,6 +2,7 @@ import { Component, OnInit, Optional } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
 import { TmplAstBoundText } from '@angular/compiler';
 import { FliterPipe } from '../fliter.pipe';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-content-list',
@@ -20,7 +21,7 @@ export class ContentListComponent implements OnInit {
     description: 'Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, an adolescent ninja who constantly searches for recognition and dreams to become the Hokage, the ninja in his village who is acknowledged as the leader and the strongest of all.',
     creator: 'Masashi Kishimoto',
     imgURL: 'https://static.tvtropes.org/pmwiki/pub/images/rsz_naruto.png',
-    //type: 'Anime',
+    type: 'Action',
     tags: ['Action', 'Adventure', 'Comedy', 'Drama', 'Fantasy', 'Shounen']
   },
   {
@@ -28,6 +29,7 @@ export class ContentListComponent implements OnInit {
     title: 'One Piece',
     description:'One Piece is a Japanese manga series written and illustrated by Eiichiro Oda.',
     creator: 'Eiichiro Oda',
+    type: 'Adventure',
     imgURL: 'https://static.tvtropes.org/pmwiki/pub/images/2e5c6d37_566f_4274_b62d_ebf5fcbd0722.png',
   },
   {
@@ -35,7 +37,7 @@ export class ContentListComponent implements OnInit {
     title: 'Bleach',
     description:'Bleach is a Japanese manga series written and illustrated by Tite Kubo. Bleach follows the adventures of the hotheaded teenager Ichigo Kurosaki after he obtains the powers of a Soul Reaper—a death personification similar to the Grim Reaper—from another Soul Reaper, Rukia Kuchiki.',
     creator: 'Tite Kubo',
-    //type: 'Anime',
+    type: 'Fight',
     tags: ['Action', 'Adventure', 'Comedy', 'Drama', 'Fantasy', 'Shounen'],
     imgURL: 'https://m.media-amazon.com/images/M/MV5BZjE0YjVjODQtZGY2NS00MDcyLThhMDAtZGQwMTZiOWNmNjRiXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_.jpg',
   },
@@ -80,19 +82,21 @@ this.inputvalue ="";
 }
     ngOnInit(): void {
   }
-  clickEvent(inputvalue:any): any {
-  
+  clickEvent(): any {
     // let i = 0;
     //  return  console.log(inputvalue); 
+    //console.log(this.content);
     for(let i = 0;  i < this.content.length; i++) {
      console.log(this.content[i].type);
-
       // console.log(author.author)
-      // console.log(inputvalue);
-      if(this.content[i].type == inputvalue){
-     let abj =  <HTMLInputElement>document.getElementById('aut');
+      // console.log('inputvalue', inputvalue);
+      //if(this.content[i].type == inputvalue){
+     let abj =  <HTMLInputElement>document.getElementById('aut');   
+     console.log(abj.value);
+     if(this.content[i].type == abj.value){
        //return 'we found the item with other';
-       abj.innerHTML = 'we found the item with other';
+       let out= <HTMLInputElement>document.getElementById('msg');
+        out.innerHTML = 'we found the item with other';
       }
       //   else{
       //  let abj =  <HTMLInputElement>document.getElementById('aut');

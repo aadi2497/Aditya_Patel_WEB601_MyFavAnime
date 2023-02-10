@@ -1,8 +1,8 @@
 <!-- <p>content-list works!</p> -->
 
-<input type="text" ngModel for="inputvalue?" />
-<button (click)="clickEvent(inputvalue)">Click me!</button>
-<div class="aut" id="aut"></div> 
+<input ngModel for="inputvalue?" id="aut"/>
+<button (click)="clickEvent()">Click me!</button>
+<div class="aut" id="msg"></div> 
 
 <!-- <div>
     <app-content-card *ngFor="let content of content; index as i; first as idFirst; odd as odd; even as even;" [content]="content" class="chess-player-{{i}} border" [class.is-odd]="odd" [class.is-even]="even"></app-content-card>
