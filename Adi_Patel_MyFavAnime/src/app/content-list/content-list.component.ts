@@ -80,7 +80,7 @@ this.inputvalue ="";
 }
     ngOnInit(): void {
   }
-  clickEvent(inputvalue: any): any {
+  clickEvent(inputvalue:any): any {
   
     // let i = 0;
     //  return  console.log(inputvalue); 
