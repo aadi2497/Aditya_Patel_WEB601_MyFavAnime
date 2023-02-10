@@ -10,9 +10,9 @@ export class FliterPipe implements PipeTransform {
     if(!content){
       return content;
     }
-    return content.filter((item: Content) => {
+    return content.filter((content) => {
     //return item.type?.length;
-    return item.type?.length || item.type == 'anime' || item.type == 'manga';
+    return content.type?.length || content.type == 'Anime' || content.type == 'Manga';
   });
  }
 }

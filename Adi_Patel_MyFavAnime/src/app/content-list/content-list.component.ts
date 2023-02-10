@@ -43,7 +43,7 @@ export class ContentListComponent implements OnInit {
     description:'Dragon Ball Z is a Japanese anime television series produced by Toei Animation. Dragon Ball Z is the sequel to the Dragon Ball anime and adapts the latter 325 chapters of the original 519-chapter Dragon Ball manga series created by Akira Toriyama which ran in Weekly Shōnen Jump from 1988 to 1995.',
     creator: 'Akira Toriyama',
     imgURL: 'https://www.crunchyroll.com/imgsrv/display/thumbnail/480x720/catalog/crunchyroll/35e4ac6339f5fdcc164160a5755790cd.jpe',
-    type: 'Anime | Manga',
+    type: 'Anime',
     tags: ['Action', 'Adventure', 'Comedy', 'Drama', 'Fantasy', 'Shounen']
   },
   {
@@ -52,7 +52,7 @@ export class ContentListComponent implements OnInit {
     description:'Dragon Ball Super is a Japanese anime television series produced by Toei Animation that began airing on July 5, 2015 and ended on March 25, 2018. The series serves as a sequel to Dragon Ball Z and adapts the final 26 volumes of the Dragon Ball manga series created by Akira Toriyama which were published from 1999 to 2015 in Weekly Shōnen Jump.',
     creator: 'Akira Toriyama',
     imgURL: 'https://m.media-amazon.com/images/M/MV5BY2I2MzI1ODYtMWRlOS00MzdhLWEyOWEtYWJhNmFiZTIxMGJhXkEyXkFqcGdeQXVyMTExNDQ2MTI@._V1_FMjpg_UX1000_.jpg',
-    type: 'Anime',
+    type: "Anime",
     tags: ['Action', 'Adventure', 'Comedy', 'Drama', 'Fantasy', 'Shounen'],
   },
   {
@@ -61,7 +61,7 @@ export class ContentListComponent implements OnInit {
     description:'Dragon Ball GT is a Japanese anime television series and the fourth Dragon Ball anime series. It is a sequel to Dragon Ball Z and adapts the 23rd through 42nd volumes of the Dragon Ball manga series created by Akira Toriyama which were published from 1996 to 1997 in Weekly Shōnen Jump.',
     creator: 'Akira Toriyama',
     imgURL: 'https://www.crunchyroll.com/imgsrv/display/thumbnail/480x720/catalog/crunchyroll/3eb79333155a8e87b2f7be64f064c694.jpe',
-    type: 'Anime',
+    type: 'Manga',
     tags: ['Action', 'Adventure', 'Comedy', 'Drama', 'Fantasy', 'Shounen']
   },
   {
@@ -70,7 +70,7 @@ export class ContentListComponent implements OnInit {
     description:'Dragon Ball is a Japanese manga series written and illustrated by Akira Toriyama. It was originally serialized in Weekly Shōnen Jump from 1984 to 1995, with the 519 individual chapters collected into 42 tankōbon volumes by its publisher Shueisha.',
     creator: 'Akira Toriyama',
     imgURL: 'https://www.crunchyroll.com/imgsrv/display/thumbnail/480x720/catalog/crunchyroll/3eb79333155a8e87b2f7be64f064c694.jpe',
-    type: 'Anime',
+    type: 'Manga',
     tags: ['Action', 'Adventure', 'Comedy', 'Drama', 'Fantasy', 'Shounen']
   }
 ]

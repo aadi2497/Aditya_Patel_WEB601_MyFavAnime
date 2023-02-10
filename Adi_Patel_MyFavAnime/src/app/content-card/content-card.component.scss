@@ -4,8 +4,8 @@
 }
 
 :host{
-        display: flex;
-        flex-direction: column;
+        display: block;
+        //flex-direction: column;
         float: left;
         width: 450px;
         height: 30%;
@@ -20,6 +20,14 @@
         &.is-odd{
              background-color: white;
          }
+        &.Anime{
+            background-color: #000;
+            color: blue;
+        }
+        &.Manga{
+            background-color: #000;
+            color: red;
+        } 
     
      img{
         width: 25em;
