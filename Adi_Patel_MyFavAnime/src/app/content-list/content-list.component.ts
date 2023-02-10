@@ -43,7 +43,7 @@ export class ContentListComponent implements OnInit {
     description:'Dragon Ball Z is a Japanese anime television series produced by Toei Animation. Dragon Ball Z is the sequel to the Dragon Ball anime and adapts the latter 325 chapters of the original 519-chapter Dragon Ball manga series created by Akira Toriyama which ran in Weekly Shōnen Jump from 1988 to 1995.',
     creator: 'Akira Toriyama',
     imgURL: 'https://www.crunchyroll.com/imgsrv/display/thumbnail/480x720/catalog/crunchyroll/35e4ac6339f5fdcc164160a5755790cd.jpe',
-    type: 'Anime',
+    type: 'Anime | Manga',
     tags: ['Action', 'Adventure', 'Comedy', 'Drama', 'Fantasy', 'Shounen']
   },
   {
@@ -64,6 +64,15 @@ export class ContentListComponent implements OnInit {
     type: 'Anime',
     tags: ['Action', 'Adventure', 'Comedy', 'Drama', 'Fantasy', 'Shounen']
   },
+  {
+    id:6,
+    title: 'Dragon Ball',
+    description:'Dragon Ball is a Japanese manga series written and illustrated by Akira Toriyama. It was originally serialized in Weekly Shōnen Jump from 1984 to 1995, with the 519 individual chapters collected into 42 tankōbon volumes by its publisher Shueisha.',
+    creator: 'Akira Toriyama',
+    imgURL: 'https://www.crunchyroll.com/imgsrv/display/thumbnail/480x720/catalog/crunchyroll/3eb79333155a8e87b2f7be64f064c694.jpe',
+    type: 'Anime',
+    tags: ['Action', 'Adventure', 'Comedy', 'Drama', 'Fantasy', 'Shounen']
+  }
 ]
 }
     ngOnInit(): void {
