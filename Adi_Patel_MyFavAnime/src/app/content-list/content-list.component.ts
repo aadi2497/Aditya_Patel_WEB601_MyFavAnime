@@ -20,7 +20,7 @@ export class ContentListComponent implements OnInit {
     title: 'Naruto',
     description: 'Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, an adolescent ninja who constantly searches for recognition and dreams to become the Hokage, the ninja in his village who is acknowledged as the leader and the strongest of all.',
     creator: 'Masashi Kishimoto',
-    imgURL: 'https://static.tvtropes.org/pmwiki/pub/images/rsz_naruto.png',
+    //imgURL: 'https://static.tvtropes.org/pmwiki/pub/images/rsz_naruto.png',
     type: 'Action',
     tags: ['Action', 'Adventure', 'Comedy', 'Drama', 'Fantasy', 'Shounen']
   },
@@ -83,33 +83,15 @@ this.inputvalue ="";
     ngOnInit(): void {
   }
   clickEvent(): any {
-    // let i = 0;
-    //  return  console.log(inputvalue); 
-    //console.log(this.content);
+  
     for(let i = 0;  i < this.content.length; i++) {
      console.log(this.content[i].type);
-      // console.log(author.author)
-      // console.log('inputvalue', inputvalue);
-      //if(this.content[i].type == inputvalue){
      let abj =  <HTMLInputElement>document.getElementById('aut');   
      console.log(abj.value);
-     if(this.content[i].type == abj.value){
-       //return 'we found the item with other';
+     if(this.content[i].type === abj.value){
        let out= <HTMLInputElement>document.getElementById('msg');
         out.innerHTML = 'we found the item with other';
       }
-      //   else{
-      //  let abj =  <HTMLInputElement>document.getElementById('aut');
-
-      //        abj.innerHTML = 'we can not find the other';
-      //   }
-    
-
-    }
-    let abj =  <HTMLInputElement>document.getElementById('aut');
-    if(!abj.innerHTML){
-             abj.innerHTML = 'we can not find the other';
-
     }
   }
 }
