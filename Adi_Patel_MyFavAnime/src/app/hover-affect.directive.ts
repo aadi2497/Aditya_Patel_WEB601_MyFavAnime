@@ -1,43 +1,36 @@
-import { Directive, ElementRef, HostBinding, HostListener, Input } from '@angular/core';
+import { ContentChildren, Directive, ElementRef, HostBinding, HostListener, Input, QueryList } from '@angular/core';
 
 @Directive({
   selector: '[appHoverAffect]'
 })
 export class HoverAffectDirective {
 
-  @Input() defaultColor:string="";  
-  @Input() highlightColor:string="";
-  @Input() highlighttext:string="";  
-  private isHighlighted: boolean = false;
 
-@HostBinding('style.text-decoration') underline:string=this.defaultColor; 
-@HostBinding('style.font-weight') bold:string=this.defaultColor;
-constructor(private eleRef:ElementRef) { }
+@Input() hoverAffect: string;
+  @HostBinding('style.textDecoration') textDecoration: string;
+  @HostBinding('style.fontWeight') fontWeight: string;
+  @HostBinding('style.border') border: string;
 
-  @HostListener('mouseover') mouseover(eventData:Event){  
-    this.underline=this.highlightColor;  
-  // this.eleRef.nativeElement.style.color="White";  
-  }  
+  @HostListener('mouseenter') onMouseEnter() {
+    if (this.hoverAffect === 'type') {
+      this.textDecoration = 'underline';
+    } else if (this.hoverAffect === 'tag') {
+      this.fontWeight = 'bold';
+      this.border = '6px solid blue';
+    } else if (this.hoverAffect === 'card') {
+      this.border = '2px solid blue';
+    }
+  }
 
-  @HostListener('mouseleave') mouseleave(eventData:Event){  
-    this.underline=this.defaultColor;  
-    //this.eleRef.nativeElement.style.color="Black";  
-  } 
-
-  @HostListener('mousemove') mousemove(eventData:Event){  
-    this.bold=this.highlighttext;  
-  // this.eleRef.nativeElement.style.color="White";  
-  }  
-
-  @HostListener('mouseleave') mouseleave2(eventData:Event){  
-    this.bold=this.defaultColor;  
-    //this.eleRef.nativeElement.style.color="Black";  
-  } 
-
-
-
-  // @HostListener('click') onClick() {
-  //   //this.isHighlighted = !this.isHighlighted;
-  //   this.bold=this.highlighttext;
-  // }
+  @HostListener('mouseleave') onMouseLeave() {
+    if (this.hoverAffect === 'type') {
+      this.textDecoration = 'none';
+    } else if (this.hoverAffect === 'tag') {
+      this.fontWeight = 'normal';
+      this.border = 'none';
+    } else if (this.hoverAffect === 'card') {
+      this.border = 'none';
+    }
+  }
 }
+

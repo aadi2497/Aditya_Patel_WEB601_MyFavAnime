@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 
 export class ContentListComponent implements OnInit {
   
-  content: Content[];
+  public content: Content[];
   public inputvalue?: Optional;
   constructor() {
   this.content = [{
@@ -22,7 +22,7 @@ export class ContentListComponent implements OnInit {
     creator: 'Masashi Kishimoto',
     //imgURL: 'https://static.tvtropes.org/pmwiki/pub/images/rsz_naruto.png',
     type: 'Action',
-    tags: ['Action', 'Adventure', 'Comedy', 'Drama', 'Fantasy', 'Shounen']
+    tags: [`Action`, `Shounen`]
   },
   {
     id:1,
