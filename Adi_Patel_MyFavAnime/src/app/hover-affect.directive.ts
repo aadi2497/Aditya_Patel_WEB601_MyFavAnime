@@ -24,20 +24,20 @@ constructor(private eleRef:ElementRef) { }
     //this.eleRef.nativeElement.style.color="Black";  
   } 
 
-  // @HostListener('mouseover') mouseover2(eventData:Event){  
-  //   this.bold=this.highlighttext;  
-  // // this.eleRef.nativeElement.style.color="White";  
-  // }  
+  @HostListener('mousemove') mousemove(eventData:Event){  
+    this.bold=this.highlighttext;  
+  // this.eleRef.nativeElement.style.color="White";  
+  }  
 
-  // @HostListener('mouseleave') mouseleave2(eventData:Event){  
-  //   this.bold=this.defaultColor;  
-  //   //this.eleRef.nativeElement.style.color="Black";  
-  // } 
+  @HostListener('mouseleave') mouseleave2(eventData:Event){  
+    this.bold=this.defaultColor;  
+    //this.eleRef.nativeElement.style.color="Black";  
+  } 
 
 
 
-  @HostListener('click') onClick() {
-    //this.isHighlighted = !this.isHighlighted;
-    this.bold=this.highlighttext;
-  }
+  // @HostListener('click') onClick() {
+  //   //this.isHighlighted = !this.isHighlighted;
+  //   this.bold=this.highlighttext;
+  // }
 }
