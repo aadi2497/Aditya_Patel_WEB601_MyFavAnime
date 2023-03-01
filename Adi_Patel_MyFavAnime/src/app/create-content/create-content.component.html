@@ -1,1 +1,21 @@
-<p>create-content works!</p>
+<!-- <p>create-content works!</p> -->
+<div>
+    <label for="id">ID:</label>
+    <input type="text" id="id" [(ngModel)]="newContent.id" required>
+  
+    <label for="title">Title:</label>
+    <input type="text" id="title" [(ngModel)]="newContent.title" required>
+  
+    <label for="type">Type:</label>
+    <input type="text" id="type" [(ngModel)]="newContent.type" required>
+
+    <label for="type">Description:</label>
+    <input type="text" id="type" [(ngModel)]="newContent.description" required>
+
+    <label for="type">Creator:</label>
+    <input type="text" id="type" [(ngModel)]="newContent.creator" required>
+  
+    <button (click)="submitNewContent()">Add Content</button>
+  
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  </div>
