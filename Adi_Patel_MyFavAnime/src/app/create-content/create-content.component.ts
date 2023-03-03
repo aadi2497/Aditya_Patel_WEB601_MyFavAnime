@@ -1,44 +1,25 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-create-content',
   templateUrl: './create-content.component.html',
-  styleUrls: ['./create-content.component.css']
+  styleUrls: ['./create-content.component.scss']
 })
 export class CreateContentComponent {
-  @Output() contentAdded = new EventEmitter<Content>();
-  newContent: Content = { 
-    id: 0, 
-    title: '', 
-    type: '', 
-    description: '',
-    creator: ''
-   };
+  @Output() contentCreated = new EventEmitter<Content>();
+  newContent: Content = { id: 0, title: '', description: '', creator: '' };
   errorMessage: string;
 
-  createContent() {
-    if (!this.newContent.id || !this.newContent.title || !this.newContent.type || !this.newContent.description || !this.newContent.creator) {
-      this.errorMessage = 'All fields are required';
+  onSubmit() {
+    if (!this.newContent.id || !this.newContent.title || !this.newContent.description || !this.newContent.creator) {
+      this.errorMessage = 'Please fill in all required fields.';
       return Promise.reject();
     }
-    const promise = new Promise<void>((resolve, reject) => {
-      // Here you can add the code to send the new content item to the server or backend
-      // If the request is successful, call the resolve function
-      // If the request fails, call the reject function with an error message
-    });
-
-    promise.then(() => {
-      console.log(`Content added successfully: ${this.newContent.title}`);
-      this.newContent = {id: 0, 
-        title: '', 
-        type: '', 
-        description: '',
-        creator: '' };
-      this.errorMessage = '';
-      this.contentAdded.emit(Object.assign({}, this.newContent));
-    }).catch(() => {
-      this.errorMessage = 'Failed to add content';
-    });
+    this.contentCreated.emit(this.newContent);
+    this.newContent = { id: 0, title: '', description: '', creator: '' };
+    this.errorMessage = '';
+    return Promise.resolve();
   }
 }

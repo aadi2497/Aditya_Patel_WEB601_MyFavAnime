@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
 import { HoverAffectDirective } from '../hover-affect.directive';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-content-card',

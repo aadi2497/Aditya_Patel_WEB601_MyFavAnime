@@ -7,6 +7,7 @@ import { ContentListComponent } from './content-list/content-list.component';
 import { FliterPipe } from './fliter.pipe';
 import { HoverAffectDirective } from './hover-affect.directive';
 import { CreateContentComponent } from './create-content/create-content.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [

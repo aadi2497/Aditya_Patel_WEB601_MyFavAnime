@@ -1,10 +1,26 @@
 <!-- <p>content-list works!</p> -->
-<app-create-content (newContentEvent)="addNewContent($event)"></app-create-content>
+
+  <div *ngFor="let content of filteredContents">
+    <h2>{{ content.title }}</h2>
+    <p>{{ content.description }}</p>
+    <p>Created by {{ content.creator }}</p>
+    <hr>
+  </div>
+  <app-create-content (contentCreated)="onContentCreated($event)"></app-create-content>
 <br>
 <br>
 <input ngModel for="inputvalue?" id="aut"/>
 <button (click)="clickEvent()">Click me!</button>
 <div class="aut" id="msg"></div> 
+
+
+<br>
+<br>
+<br>
+<div>
+    <label for="filter">Filter:</label>
+    <input id="filter" ngModel="filterText" name="filter" type="text">
+  </div>
 
 <!-- <div>
     <app-content-card *ngFor="let content of content; index as i; first as idFirst; odd as odd; even as even;" [content]="content" class="chess-player-{{i}} border" [class.is-odd]="odd" [class.is-even]="even"></app-content-card>
@@ -29,19 +45,7 @@
 
     <app-content-card  *ngIf="!content.type" [content]="content" class="chess-player-{{i}} border" [class.is-odd]="odd" [class.is-even]="even"></app-content-card>
 </div>
- 
-<h2>Content List</h2>
-<div>
-  <label for="filter">Filter by Type:</label>
-  <select id="filter" (change)="applyFilters()">
-    <option value="">Action</option>
-    <option value="blog">Manga</option>
-    <option value="news">Anime</option>
-  </select>
-</div>
-<ul>
-  <li *ngFor="let content of filteredContents | filterByType:filterValue">{{ content.title }}</li>
-</ul>
+
 
 
 

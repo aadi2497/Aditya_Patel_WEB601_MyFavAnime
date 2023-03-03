@@ -1,20 +1,18 @@
-<h2>Create New Content</h2>
-<form>
+<div>
   <label for="id">ID:</label>
-  <input type="text" id="id" [(ngModel)]="newContent.id" required>
-
+  <input id="id" ngModel="newContent.id" name="id" type="number">
+</div>
+<div>
   <label for="title">Title:</label>
-  <input type="text" id="title" [(ngModel)]="newContent.title" required>
-
-  <label for="type">Type:</label>
-  <input type="text" id="type" [(ngModel)]="newContent.type" required>
-
+  <input id="title" ngModel="newContent.title" name="title" type="text" required>
+</div>
+<div>
   <label for="description">Description:</label>
-  <textarea id="description" [(ngModel)]="newContent.description" required></textarea>
-
+  <input id="description" ngModel="newContent.description" name="description" type="text" required>
+</div>
+<div>
   <label for="creator">Creator:</label>
-  <input type="text" id="creator" [(ngModel)]="newContent.creator" required>
-
-  <button type="button" (click)="createContent()">Create Content</button>
-</form>
-<div *ngIf="errorMessage" style="color:red;font-weight:bold;">{{errorMessage}}</div>
+  <input id="creator" ngModel="newContent.creator" name="creator" type="text" required>
+</div>
+<button (click)="onSubmit()">Submit</button>
+<!-- <div *ngIf="errorMessage" style="color: red; font-weight: bold;">{{ errorMessage }}</div> -->

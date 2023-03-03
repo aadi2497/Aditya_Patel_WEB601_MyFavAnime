@@ -1,8 +1,10 @@
-import { Component, OnInit, Optional } from '@angular/core';
+import { Component, NgModule, OnInit, Optional } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
 import { TmplAstBoundText } from '@angular/compiler';
 import { FliterPipe } from '../fliter.pipe';
 import { FormsModule } from '@angular/forms';
+import { CreateContentComponent } from '../create-content/create-content.component';
+
 
 @Component({
   selector: 'app-content-list',
@@ -95,25 +97,52 @@ this.inputvalue ="";
       }
     }
   }
-  filteredContents: Content[];
-  errorMessage: string = '';
+  
+  filteredContents: Content[] = [];
+  filterText: string;
+  errorMessage: string;
 
-  addContent(content: Content) {
-    if (!content.id || !content.title || !content.type || !content.creator || !content.description) {
-      this.errorMessage = 'All fields are required.';
-      return Promise.reject();
-    }
-    const clonedContents = [...this.content];
-    clonedContents.push(content);
-    this.content = clonedContents;
-    this.applyFilters();
-    this.errorMessage = '';
-    return Promise.resolve();
+  onContentCreated(content: Content) {
+    this.addContent(content)
+      .then(() => {
+        console.log(`Successfully added ${content.title}.`);
+        this.errorMessage = '';
+      })
+      .catch(() => {
+        console.error(`Failed to add ${content.title}.`);
+        this.errorMessage = 'Failed to add content.';
+      });
   }
 
-  applyFilters() {
-    // Here you can add the code to filter the contents based on the selected filters
-    this.filteredContents = this.content;
+  addContent(content: Content): Promise<void> {
+    return new Promise((resolve, reject) => {
+      const requiredFields = ['id', 'title', 'description', 'creator'];
+      const missingFields = requiredFields.filter(type => !content[type]);
+      if (missingFields.length > 0) {
+        reject();
+        this.errorMessage = `Please fill in the required fields: ${missingFields.join(', ')}.`;
+        return;
+      }
+      const existingContent = this.content.find(c => c.id === content.id);
+      if (existingContent) {
+        reject();
+        this.errorMessage = `Content with ID ${content.id} already exists.`;
+        return;
+      }
+      const clonedContent = { ...content };
+      this.content.push(clonedContent);
+      this.filterContents();
+      resolve();
+    });
+  }
+
+  filterContents() {
+    this.filteredContents = this.content.filter(content => {
+      const filterText = this.filterText ? this.filterText.toLowerCase() : '';
+      const contentTitle = content.title.toLowerCase();
+      const contentDescription = content.description.toLowerCase();
+      return contentTitle.includes(filterText) || contentDescription.includes(filterText);
+    });
   }
   
 }
