@@ -96,12 +96,19 @@ this.inputvalue ="";
     }
   }
   filteredContents: Content[];
+  errorMessage: string = '';
 
   addContent(content: Content) {
+    if (!content.id || !content.title || !content.type || !content.creator || !content.description) {
+      this.errorMessage = 'All fields are required.';
+      return Promise.reject();
+    }
     const clonedContents = [...this.content];
     clonedContents.push(content);
     this.content = clonedContents;
     this.applyFilters();
+    this.errorMessage = '';
+    return Promise.resolve();
   }
 
   applyFilters() {
