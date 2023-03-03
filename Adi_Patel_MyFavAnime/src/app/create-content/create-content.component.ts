@@ -1,38 +1,44 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
-import { ɵisPromise } from '@angular/core';
 
 @Component({
   selector: 'app-create-content',
   templateUrl: './create-content.component.html',
-  styleUrls: ['./create-content.component.scss']
+  styleUrls: ['./create-content.component.css']
 })
 export class CreateContentComponent {
-newContent: Content = new Content();
-  types: string[] = ['Article', 'Blog Post', 'Video', 'Podcast'];
-  errorMessage: string = '';
-
   @Output() contentAdded = new EventEmitter<Content>();
+  newContent: Content = { 
+    id: 0, 
+    title: '', 
+    type: '', 
+    description: '',
+    creator: ''
+   };
+  errorMessage: string;
 
-  onSubmit() {
-    if (!this.newContent.id || !this.newContent.title || !this.newContent.description || !this.newContent.type) {
-      this.errorMessage = 'Please fill in all required fields';
-      return;
+  createContent() {
+    if (!this.newContent.id || !this.newContent.title || !this.newContent.type || !this.newContent.body) {
+      this.errorMessage = 'All fields are required';
+      return Promise.reject();
     }
-    this.errorMessage = '';
-    const promise = new Promise((resolve, reject) => {
-      this.contentAdded.emit(this.newContent.clone());
-      resolve();
+    const promise = new Promise<void>((resolve, reject) => {
+      // Here you can add the code to send the new content item to the server or backend
+      // If the request is successful, call the resolve function
+      // If the request fails, call the reject function with an error message
     });
-    promise
-      .then(() => {
-        console.log(`Added content: ${this.newContent.title}`);
-        this.newContent = new Content();
-      })
-      .catch(() => {
-        this.errorMessage = 'Failed to add content';
-      });
+
+    promise.then(() => {
+      console.log(`Content added successfully: ${this.newContent.title}`);
+      this.newContent = {id: 0, 
+        title: '', 
+        type: '', 
+        description: '',
+        creator: '' };
+      this.errorMessage = '';
+      this.contentAdded.emit(Object.assign({}, this.newContent));
+    }).catch(() => {
+      this.errorMessage = 'Failed to add content';
+    });
   }
-
-
 }

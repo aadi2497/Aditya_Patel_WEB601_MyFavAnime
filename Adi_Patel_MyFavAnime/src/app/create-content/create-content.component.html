@@ -1,24 +1,20 @@
-<div>
-  <h2>Create New Content</h2>
-  <div class="form-group">
-    <label for="id">ID</label>
-    <input type="text" class="form-control" id="id" [(ngModel)]="newContent.id" name="id" required>
-  </div>
-  <div class="form-group">
-    <label for="title">Title</label>
-    <input type="text" class="form-control" id="title" [(ngModel)]="newContent.title" name="title" required>
-  </div>
-  <div class="form-group">
-    <label for="description">Description</label>
-    <input type="text" class="form-control" id="description" [(ngModel)]="newContent.description" name="description" required>
-  </div>
-  <div class="form-group">
-    <label for="type">Type</label>
-    <select class="form-control" id="type" [(ngModel)]="newContent.type" name="type" required>
-      <option value="">Select Type</option>
-      <option *ngFor="let type of types" [value]="type">{{ type }}</option>
-    </select>
-  </div>
-  <button class="btn btn-primary" (click)="onSubmit()">Submit</button>
-  <p *ngIf="errorMessage" style="color:red; font-weight:bold">{{ errorMessage }}</p>
-</div>
+<h2>Create New Content</h2>
+<form>
+  <label for="id">ID:</label>
+  <input type="text" id="id" [(ngModel)]="newContent.id" required>
+
+  <label for="title">Title:</label>
+  <input type="text" id="title" [(ngModel)]="newContent.title" required>
+
+  <label for="type">Type:</label>
+  <input type="text" id="type" [(ngModel)]="newContent.type" required>
+
+  <label for="description">Description:</label>
+  <textarea id="description" [(ngModel)]="newContent.description" required></textarea>
+
+  <label for="creator">Creator:</label>
+  <input type="text" id="creator" [(ngModel)]="newContent.creator" required>
+
+  <button type="button" (click)="createContent()">Create Content</button>
+</form>
+<div *ngIf="errorMessage" style="color:red;font-weight:bold;">{{errorMessage}}</div>
