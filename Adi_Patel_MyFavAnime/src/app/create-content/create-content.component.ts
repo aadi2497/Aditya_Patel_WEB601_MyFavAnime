@@ -18,7 +18,7 @@ export class CreateContentComponent {
   errorMessage: string;
 
   createContent() {
-    if (!this.newContent.id || !this.newContent.title || !this.newContent.type || !this.newContent.body) {
+    if (!this.newContent.id || !this.newContent.title || !this.newContent.type || !this.newContent.description || !this.newContent.creator) {
       this.errorMessage = 'All fields are required';
       return Promise.reject();
     }

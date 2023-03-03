@@ -95,7 +95,7 @@ this.inputvalue ="";
       }
     }
   }
-  filteredContents: Content[] = this.content;
+  filteredContents: Content[];
 
   addContent(content: Content) {
     const clonedContents = [...this.content];
