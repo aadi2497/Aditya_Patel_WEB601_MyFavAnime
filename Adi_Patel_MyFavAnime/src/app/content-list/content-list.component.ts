@@ -11,7 +11,25 @@ import { FormsModule } from '@angular/forms';
 })
 
 export class ContentListComponent implements OnInit {
-  
+  contents: Content[] = [];
+
+  addContent(newContent: Content) {
+    return new Promise<void>((resolve, reject) => {
+      // Simulate sending the new content item to the server
+      setTimeout(() => {
+        // Add the new content item to the list
+        this.contents.push(Object.assign({}, newContent));
+        // Resolve the promise with a success message
+        console.log(`Added content: ${newContent.title}`);
+        resolve();
+      }, 2000);
+    }).catch(error => {
+      // Display an error message if the promise is rejected
+      console.error('Error adding content:', error);
+    });
+  }
+
+
   public content: Content[];
   public inputvalue?: Optional;
   constructor() {
@@ -79,6 +97,7 @@ export class ContentListComponent implements OnInit {
   }
 ]
 this.inputvalue ="";
+
 }
     ngOnInit(): void {
   }
@@ -94,4 +113,6 @@ this.inputvalue ="";
       }
     }
   }
+
+  
 }

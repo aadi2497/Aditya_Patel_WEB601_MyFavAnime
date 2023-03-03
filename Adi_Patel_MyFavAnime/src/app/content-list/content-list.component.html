@@ -30,6 +30,11 @@
     <app-content-card  *ngIf="!content.type" [content]="content" class="chess-player-{{i}} border" [class.is-odd]="odd" [class.is-even]="even"></app-content-card>
 </div>
  
+<div *ngFor="let content of contents | filterType:typeFilter">
+    <h3>{{ content.title }}</h3>
+    <p>Type: {{ content.type }}</p>
+    <p>{{ content.description }}</p>
+  </div>
 
 
 

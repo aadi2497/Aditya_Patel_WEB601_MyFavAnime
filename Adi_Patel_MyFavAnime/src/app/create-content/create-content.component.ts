@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
+import { ɵisPromise } from '@angular/core';
 
 @Component({
   selector: 'app-create-content',
@@ -7,36 +8,31 @@ import { Content } from '../helper-files/content-interface';
   styleUrls: ['./create-content.component.scss']
 })
 export class CreateContentComponent {
+newContent: Content = new Content();
+  types: string[] = ['Article', 'Blog Post', 'Video', 'Podcast'];
+  errorMessage: string = '';
 
-  @Output() newContentEvent = new EventEmitter<Content>();
+  @Output() contentAdded = new EventEmitter<Content>();
 
-  newContent: Content = {
-    id: 0,
-    title: '',
-    type: '',
-    description: '',
-    creator: ''
-  };
-
-  errorMessage: string;
-
-  submitNewContent(): void {
-    if (!this.newContent.id || !this.newContent.title || !this.newContent.type) {
-      this.errorMessage = 'Please fill in all required fields.';
+  onSubmit() {
+    if (!this.newContent.id || !this.newContent.title || !this.newContent.description || !this.newContent.type) {
+      this.errorMessage = 'Please fill in all required fields';
       return;
     }
-
-    this.newContentEvent.emit(this.newContent);
-
-    this.newContent = {
-      id:0,
-      title: '',
-      type: '',
-      description: '',
-      creator: ''
-    };
-
     this.errorMessage = '';
+    const promise = new Promise((resolve, reject) => {
+      this.contentAdded.emit(this.newContent.clone());
+      resolve();
+    });
+    promise
+      .then(() => {
+        console.log(`Added content: ${this.newContent.title}`);
+        this.newContent = new Content();
+      })
+      .catch(() => {
+        this.errorMessage = 'Failed to add content';
+      });
   }
+
 
 }
