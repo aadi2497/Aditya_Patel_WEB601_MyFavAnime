@@ -1,1 +1,4 @@
-<p>messages works!</p>
+<div class="messages-container">
+    <p *ngFor="let message of messageService.messages">{{message}}</p>
+    <span class="close-button" (click)="messageService.clear()">X</span>
+  </div>
