@@ -1,12 +1,15 @@
 <!-- <p>content-list works!</p> -->
 
-<input ngModel for="inputvalue?" id="aut"/>
+<!-- <input ngModel for="inputvalue?" id="aut"/>
 <button (click)="clickEvent()">Click me!</button>
-<div class="aut" id="msg"></div> 
+<div class="aut" id="msg"></div>  -->
 
-<!-- <div>
+ <!-- <div>
     <app-content-card *ngFor="let content of content; index as i; first as idFirst; odd as odd; even as even;" [content]="content" class="chess-player-{{i}} border" [class.is-odd]="odd" [class.is-even]="even"></app-content-card>
 </div> -->
+<div class="card shadow-card">
+    <app-content-card [content]="content[3]" class="card shadow-card" ></app-content-card>
+</div>
 
 <div *ngFor="let content of (content | fliter); index as i; first as isFirst; odd as odd; even as even;" >
 
@@ -30,4 +33,10 @@
  
 
 
-
+<!-- <ul>
+    <li *ngFor="let content of content" >
+        <h1>{{content.id}}</h1>
+      <h3>{{content.title}}</h3>
+      <p>{{content.description}}</p>
+    </li>
+  </ul> -->

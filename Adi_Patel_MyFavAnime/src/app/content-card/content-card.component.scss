@@ -2,7 +2,9 @@
     display: block;
     border:  solid 1px black;
 }
-
+.card.shadow-card {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
 :host{
         display: block;
         //flex-direction: column;
@@ -13,7 +15,11 @@
          margin: 30px 25px;
         border: 1px solid #000;
          padding: 8px;
-    
+        
+         .card.shadow-card {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+          }
+
         &.is-even {
             background-color: rgb(135, 135, 135);
           }
@@ -54,4 +60,8 @@
         color: white;
         background-color: cadetblue;
      }
+
+     .card.shadow-card {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
 }
