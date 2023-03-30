@@ -12,7 +12,7 @@ export class FliterPipe implements PipeTransform {
     }
     return content.filter((content) => {
     //return item.type?.length;
-    return content.type;//?.length || content.type == 'Anime' || content.type == 'Manga' || content.type == 'Action';
+    return content;
   });
  }
 }

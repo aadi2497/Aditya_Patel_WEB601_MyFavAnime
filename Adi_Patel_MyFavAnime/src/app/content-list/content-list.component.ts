@@ -31,7 +31,7 @@ this.inputvalue ="";
         
       });
 
-      const id = 6; // Replace with the actual id
+      const id = 0; // Replace with the actual id
       this.animeService.getItemById(id).subscribe(data => {
       this.content = [data, ...this.content];
       this.addMessage(`Added content item with id ${id}`);
