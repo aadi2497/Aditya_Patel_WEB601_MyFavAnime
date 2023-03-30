@@ -7,6 +7,10 @@ import { ContentListComponent } from './content-list/content-list.component';
 import { FliterPipe } from './fliter.pipe';
 import { HoverAffectDirective } from './hover-affect.directive';
 import { MessagesComponent } from './messages/messages.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { MockServer } from './mock-server';
+import { ModifyContentComponent } from './modify-content/modify-content.component';
 
 @NgModule({
   declarations: [
@@ -15,10 +19,13 @@ import { MessagesComponent } from './messages/messages.component';
     ContentListComponent,
     FliterPipe,
     HoverAffectDirective,
-    MessagesComponent
+    MessagesComponent,
+    ModifyContentComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(MockServer),
     FormsModule
   ],
   providers: [],
