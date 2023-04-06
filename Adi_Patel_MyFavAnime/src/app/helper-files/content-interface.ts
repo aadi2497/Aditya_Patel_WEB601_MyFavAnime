@@ -1,7 +1,7 @@
 import { Optional } from "@angular/core";
 
 export interface Content {
-    id?: number | null;
+    id?:number;
     title: string;
     description: string;
     creator?: string;

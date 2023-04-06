@@ -8,9 +8,10 @@ import { FliterPipe } from './fliter.pipe';
 import { HoverAffectDirective } from './hover-affect.directive';
 import { MessagesComponent } from './messages/messages.component';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { HttpClientInMemoryWebApiModule, InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { MockServer } from './mock-server';
 import { ModifyContentComponent } from './modify-content/modify-content.component';
+import { InMemoryDataService } from './services/in-memory-data.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,10 @@ import { ModifyContentComponent } from './modify-content/modify-content.componen
     BrowserModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(MockServer),
+    InMemoryWebApiModule.forRoot(InMemoryDataService),
     FormsModule
+    
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

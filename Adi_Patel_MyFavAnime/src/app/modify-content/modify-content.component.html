@@ -1,4 +1,8 @@
 <div>
+    <label for="id">ID:</label>
+    <input type="number" id="id" [(ngModel)]="id">
+  </div>
+<div>
     <label for="title">Title:</label>
     <input type="text" id="title" [(ngModel)]="title">
   </div>
@@ -7,5 +11,5 @@
     <textarea id="description" [(ngModel)]="description"></textarea>
   </div>
 
-  <button (click)="addContent()">Add Content</button>
+  <button (click)="onSubmit()">{{ editing ? 'Update' : 'Add' }} Content</button>
   

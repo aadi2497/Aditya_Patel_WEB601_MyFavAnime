@@ -30,7 +30,8 @@
 </div>
 
 <ul>
-    <li *ngFor="let content of content | sortByDate: 'id' | slice:0:5 | async">
+    <li *ngFor="let content of (content | fliter)">
+        <h1>{{content.id}}</h1>
       <h3>{{content.title}}</h3>
       <p>{{content.description}}</p>
     </li>
