@@ -29,7 +29,12 @@
     <app-content-card  class="card shadow-card" ></app-content-card>
 </div>
 
-
+<ul>
+    <li *ngFor="let content of content | sortByDate: 'id' | slice:0:5 | async">
+      <h3>{{content.title}}</h3>
+      <p>{{content.description}}</p>
+    </li>
+  </ul>
 
 
 <div *ngFor="let content of (content | fliter); index as i; first as isFirst; odd as odd; even as even;" >
