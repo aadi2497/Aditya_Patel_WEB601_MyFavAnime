@@ -12,6 +12,7 @@ import { HttpClientInMemoryWebApiModule, InMemoryWebApiModule } from 'angular-in
 import { MockServer } from './mock-server';
 import { ModifyContentComponent } from './modify-content/modify-content.component';
 import { InMemoryDataService } from './services/in-memory-data.service';
+import { AnimeService } from './anime.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { InMemoryDataService } from './services/in-memory-data.service';
     
     
   ],
-  providers: [],
+  providers: [AnimeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
