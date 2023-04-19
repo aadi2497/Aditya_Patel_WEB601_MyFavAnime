@@ -21,9 +21,14 @@
 <form #contentForm="ngForm" class="content-form">
     <label for="contentId">Enter content ID:</label>
     <mat-form-field>
+<<<<<<< Updated upstream
       <input matInput type="number" id="contentId" name="contentId" required [(ngModel)]="contentId">
     </mat-form-field>
     <!-- <input type="number" id="contentId" name="contentId" required [(ngModel)]="contentId"> -->
+=======
+      <input type="number" id="contentId" name="contentId" required />
+    </mat-form-field> 
+>>>>>>> Stashed changes
     <button type="button" (click)="getContent()" mat-button>Get Content</button>
   </form>
 <app-messages></app-messages>

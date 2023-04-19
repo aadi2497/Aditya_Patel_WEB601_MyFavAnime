@@ -13,12 +13,18 @@ import { MockServer } from './mock-server';
 import { ModifyContentComponent } from './modify-content/modify-content.component';
 import { InMemoryDataService } from './services/in-memory-data.service';
 import { AnimeService } from './anime.service';
+<<<<<<< Updated upstream
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { AddContentDialogComponent } from './add-content-dialog/add-content-dialog.component';
+=======
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { CommonModule } from '@angular/common';
+>>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
@@ -29,7 +35,11 @@ import { AddContentDialogComponent } from './add-content-dialog/add-content-dial
     HoverAffectDirective,
     MessagesComponent,
     ModifyContentComponent,
+<<<<<<< Updated upstream
     AddContentDialogComponent
+=======
+    
+>>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,
@@ -37,6 +47,7 @@ import { AddContentDialogComponent } from './add-content-dialog/add-content-dial
     HttpClientInMemoryWebApiModule.forRoot(MockServer),
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     FormsModule,
+<<<<<<< Updated upstream
     MatButtonToggleModule,
     MatCardModule,
     MatFormFieldModule,
@@ -45,6 +56,11 @@ import { AddContentDialogComponent } from './add-content-dialog/add-content-dial
 
     
     
+=======
+    MatButtonModule,
+    MatFormFieldModule,
+    CommonModule
+>>>>>>> Stashed changes
   ],
   providers: [AnimeService],
   bootstrap: [AppComponent]

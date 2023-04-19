@@ -1,8 +1,12 @@
-import { Component, OnInit, Optional } from '@angular/core';
+import { Component, NgModule, OnInit, Optional } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
 import { content } from '../helper-files/contenDb';
 import { AnimeService } from '../anime.service';
 import { MessageService } from '../message.service';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-content-list',
@@ -31,7 +35,7 @@ this.inputvalue ="";
         
       });
 
-      const id = 0; // Replace with the actual id
+      const id = 3; // Replace with the actual id
       this.animeService.getItemById(id).subscribe(data => {
       this.content = [data, ...this.content];
       this.addMessage(`Added content item with id ${id}`);
