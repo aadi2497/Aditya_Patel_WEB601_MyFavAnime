@@ -1,1 +1,6 @@
-<p>content-detail works!</p>
+<h2>{{ content?.title }}</h2>
+    <p>{{ content?.description }}</p>
+    <p>Author: {{ content?.author }}</p>
+    <p>Content Type ID: {{ content?.contentTypeId }}</p>
+    <p>{{ message }}</p>
+    <a routerLink="/list">Back to List</a>
