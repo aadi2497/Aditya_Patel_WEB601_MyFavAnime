@@ -9,6 +9,9 @@ import { MessageService } from './message.service';
   providedIn: 'root'
 })
 export class AnimeService {
+  getContents(id: string | null) {
+    throw new Error('Method not implemented.');
+  }
 
   private contentUrl = 'api/content';
   httpOptions = {
@@ -65,5 +68,14 @@ export class AnimeService {
     this.messageService.add(`Content item with id ${content.id} updated!`);
     return of(content);
   }
+
+  getContent(id: string): Observable<any> {
+    const url = `${this.contentUrl}/${id}`;
+    return this.http.get<any>(url).pipe(
+      tap(_ => console.log(`fetched content id=${id}`)),
+      catchError(this.handleError<any>(`getContent id=${id}`))
+    );
+  }
+  
 
 }
