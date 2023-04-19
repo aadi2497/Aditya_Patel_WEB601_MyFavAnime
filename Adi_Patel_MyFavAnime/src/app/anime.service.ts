@@ -29,7 +29,7 @@ export class AnimeService {
     };
   }
 
-  getContentArray(): Observable<any[]> {
+  getContentArray(): Observable<Content[]> {
     this.messageService.add('Content array loaded!');
     return of(content);
   }
