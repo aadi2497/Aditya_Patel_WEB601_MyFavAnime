@@ -11,5 +11,6 @@
     <textarea id="description" [(ngModel)]="description"></textarea>
   </div>
 
-  <button (click)="onSubmit()">{{ editing ? 'Update' : 'Add' }} Content</button>
+  <button mat-raised-button color="primary" (click)="openDialog()">Add New Content</button>
+
   

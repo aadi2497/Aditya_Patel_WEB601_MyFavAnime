@@ -1,0 +1,20 @@
+<p>add-content-dialog works!</p>
+<h2 mat-dialog-title>Add {{ data.contentType }}</h2>
+    <mat-dialog-content>
+      <mat-form-field>
+        <input matInput placeholder="Title" [(ngModel)]="title">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Description" [(ngModel)]="description">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Author" [(ngModel)]="author">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Content Type ID" [(ngModel)]="contentTypeId" disabled>
+      </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-button (click)="onCancel()">Cancel</button>
+      <button mat-raised-button color="primary" (click)="onAdd()">Add</button>
+    </mat-dialog-actions>

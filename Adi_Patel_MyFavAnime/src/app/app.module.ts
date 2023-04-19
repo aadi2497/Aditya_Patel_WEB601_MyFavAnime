@@ -13,6 +13,12 @@ import { MockServer } from './mock-server';
 import { ModifyContentComponent } from './modify-content/modify-content.component';
 import { InMemoryDataService } from './services/in-memory-data.service';
 import { AnimeService } from './anime.service';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { AddContentDialogComponent } from './add-content-dialog/add-content-dialog.component';
 
 @NgModule({
   declarations: [
@@ -22,14 +28,21 @@ import { AnimeService } from './anime.service';
     FliterPipe,
     HoverAffectDirective,
     MessagesComponent,
-    ModifyContentComponent
+    ModifyContentComponent,
+    AddContentDialogComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(MockServer),
     InMemoryWebApiModule.forRoot(InMemoryDataService),
-    FormsModule
+    FormsModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
+
     
     
   ],

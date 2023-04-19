@@ -20,22 +20,25 @@
 
 <form #contentForm="ngForm" class="content-form">
     <label for="contentId">Enter content ID:</label>
-    <input type="number" id="contentId" name="contentId" required [(ngModel)]="contentId">
-    <button type="button" (click)="getContent()">Get Content</button>
+    <mat-form-field>
+      <input matInput type="number" id="contentId" name="contentId" required [(ngModel)]="contentId">
+    </mat-form-field>
+    <!-- <input type="number" id="contentId" name="contentId" required [(ngModel)]="contentId"> -->
+    <button type="button" (click)="getContent()" mat-button>Get Content</button>
   </form>
 <app-messages></app-messages>
 
 <div class="card shadow-card">
-    <app-content-card  class="card shadow-card" ></app-content-card>
+    <app-content-card [content]="content[contentId]" class="card shadow-card" ></app-content-card>
 </div>
 
-<ul>
+<!-- <ul>
     <li *ngFor="let content of (content | fliter)">
         <h1>{{content.id}}</h1>
       <h3>{{content.title}}</h3>
       <p>{{content.description}}</p>
     </li>
-  </ul>
+  </ul> -->
 
 
 <div *ngFor="let content of (content | fliter); index as i; first as isFirst; odd as odd; even as even;" >
