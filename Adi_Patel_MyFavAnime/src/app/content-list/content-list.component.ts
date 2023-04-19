@@ -6,6 +6,7 @@ import { MessageService } from '../message.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
+import { UpdateService } from '../update.service';
 
 
 @Component({
@@ -25,7 +26,7 @@ export class ContentListComponent implements OnInit {
   item: any;
 
   constructor(private animeService: AnimeService,
-    private messageService: MessageService) {
+    private messageService: MessageService, private updateService: UpdateService) {
 this.inputvalue ="";
 }
     ngOnInit(): void {
@@ -40,6 +41,8 @@ this.inputvalue ="";
       this.content = [data, ...this.content];
       this.addMessage(`Added content item with id ${id}`);
     });
+
+    this.updateService.checkForUpdates();
   }
 
   addMessage(message: string): void {
