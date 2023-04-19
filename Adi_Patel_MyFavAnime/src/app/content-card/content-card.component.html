@@ -3,7 +3,7 @@
         {{ content.title }}
     </h2>
     <!-- <img *ngIf="contentItem" src="{{contentItem.imageUrl}}"> -->
-    <!-- <img *ngIf="content && content.imgURL else elseBlockNameIsWhateverYouWant" [src]="content.imgURL" (click)="pritnItem()"> -->
+    <img *ngIf="content && content.imgURL else elseBlockNameIsWhateverYouWant" [src]="content.imgURL"> 
     <img *ngIf="content && content.imgURL else elseBlock" [src]="content.imgURL" (click)="pritnItem()">
     <p class="body" *ngIf="content && content.description; else elseBlockNameIsWhateverYouWant">{{content.description}}</p>
 
@@ -20,3 +20,20 @@
         <p hidden></p>
     </ng-template>
 </div>  
+
+<mat-card>
+    <mat-card-header>
+      <mat-card-title *ngIf="content && content.title else elseBlockNameIsWhateverYouWant">{{ content.title }}</mat-card-title>
+      <mat-card-subtitle *ngIf="content && content.creator else elseBlockNameIsWhateverYouWant">Author: {{ content.creator }}</mat-card-subtitle>
+    </mat-card-header>
+    <img *ngIf="content && content.imgURL else elseBlockNameIsWhateverYouWant" mat-card-image src="{{ content.imgUrl }}" alt="{{ content.title }}">
+    <mat-card-content>
+      <p *ngIf="content && content.description; else elseBlockNameIsWhateverYouWant">{{ content.description }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>View</button>
+      <button mat-button>Like</button>
+    </mat-card-actions>
+  </mat-card>
+  
+
